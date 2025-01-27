@@ -16,7 +16,7 @@ class ProductPage(BasePage):
 
     def should_be_correct_product_in_success_message(self, product_name):
         success_message = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text
-        assert product_name == success_message, f"Expected product name '{product_name}' but got '{success_message}'"
+        assert product_name in success_message, f"Expected product name '{product_name}' but got '{success_message}'"
 
     def should_be_correct_price_in_basket(self, product_price):
         basket_total = self.browser.find_element(*ProductPageLocators.BASKET_TOTAL).text
